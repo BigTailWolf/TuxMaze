@@ -1,6 +1,13 @@
 body{
     background-color: black;
     margin: 0px;
+    text-align: center;
+}
+H1 {
+    color: yellow;
+}
+div#container {
+    position: relative;
 }
 div.row div {
     width: 50px;

@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function() {
             output += "\n<div class='row'>\n";
             for(var j = 0; j < maze.length; j++) {
                 if(maze[i][j] == 5)
-                    output += "<div class='cherry'></div>";
+                    output += "<div class='cell cherry'></div>";
                 if(maze[i][j] == 2)
-                    output += "<div class='brick'></div>";
+                    output += "<div class='cell brick'></div>";
                 if(maze[i][j] == 1)
-                    output += "<div class='coin'></div>";
+                    output += "<div class='cell coin'></div>";
                 if(maze[i][j] == 0)
-                    output += "<div class='empty'></div>";
+                    output += "<div class='cell empty'></div>";
             }
             output += "\n</div>";
         }
@@ -38,8 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
         return "Holy SHit!!"
     }
     function displaytux(){
-        document.getElementById('tux').style.top = tux.y*50+"px";
-        document.getElementById('tux').style.left = tux.x*50+"px";
+        origin_y = document.getElementsByClassName('row')[0].getBoundingClientRect().y
+        origin_x = document.getElementsByClassName('cell')[0].getBoundingClientRect().x
+        document.getElementById('tux').style.top  = origin_y + tux.y*50 + "px";
+        document.getElementById('tux').style.left = origin_x + tux.x*50 + "px";
     }
     function displayGhost(){
         document.getElementById('ghost').style.top  = ghost.y*50+"px";
