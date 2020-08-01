@@ -10,18 +10,16 @@ document.addEventListener("DOMContentLoaded", function() {
         [2,1,1,2,1,2,1,1,1,2],
         [2,1,1,1,1,1,1,1,1,2],
         [2,2,2,2,2,2,2,2,2,2]
-        
     ];
-    var score = 0;
+
     var tux = { x: 1, y: 1 };
-    var ghost = { x: 7, y: 5 };
 
     function displaymaze() {
         var output = "";
     
         for(var i = 0; i < maze.length; i++) {
             output += "\n<div class='row'>\n";
-            for(var j = 0; j < maze.length; j++) {
+            for(var j = 0; j < maze.length[i]; j++) {
                 if(maze[i][j] == 5)
                     output += "<div class='cell cherry'></div>";
                 if(maze[i][j] == 2)
@@ -42,13 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
         origin_x = document.getElementsByClassName('cell')[0].getBoundingClientRect().x
         document.getElementById('tux').style.top  = origin_y + tux.y*50 + "px";
         document.getElementById('tux').style.left = origin_x + tux.x*50 + "px";
-    }
-    function displayGhost(){
-        document.getElementById('ghost').style.top  = ghost.y*50+"px";
-        document.getElementById('ghost').style.left = ghost.x*50+"px";
-    }
-    function displayScore(){
-        document.getElementById('score').innerHTML = score;
     }
     
     displaymaze();
