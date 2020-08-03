@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
         for(var i = 0; i < maze.length; i++) {
             output += "\n<div class='row'>\n";
-            for(var j = 0; j < maze.length[i]; j++) {
+            for(var j = 0; j < maze[i].length; j++) {
                 if(maze[i][j] == 5)
                     output += "<div class='cell cherry'></div>";
                 if(maze[i][j] == 2)
