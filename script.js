@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function() {
         return "Holy SHit!!"
     }
     function displaytux(){
-        origin_y = document.getElementsByClassName('row')[0].getBoundingClientRect().y
-        origin_x = document.getElementsByClassName('cell')[0].getBoundingClientRect().x
-        document.getElementById('tux').style.top  = origin_y + tux.y*50 + "px";
-        document.getElementById('tux').style.left = origin_x + tux.x*50 + "px";
+        origin_top  = document.getElementsByClassName('row')[0].getBoundingClientRect().top
+        origin_left = document.getElementsByClassName('cell')[0].getBoundingClientRect().left
+        document.getElementById('tux').style.top  = origin_top  + tux.y*50 + "px";
+        document.getElementById('tux').style.left = origin_left + tux.x*50 + "px";
     }
     
     displaymaze();
