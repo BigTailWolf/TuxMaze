@@ -16,6 +16,14 @@ def DebugMaze(maze):
             print('\t{0:04b}'.format(cell), end = '')
         print()
 
+def PrintMaze(maze):
+    print('    var maze = [')
+    for row in maze[:-1]:
+        print('        {0},'.format(row))
+    print('        {0}'.format(maze[-1]))
+    print('    ]')
+
+
 def ProcessMaze(maze):
  
     # Check whether the (0, 0) can go out.
@@ -77,12 +85,14 @@ def main():
         ([random.choice([0b0100, 0b0010, 0b0110]) for _ in range(cols)]) 
         for _ in range(rows)
     ]
-    print("Raw maze:")
-    DebugMaze(maze)
+    #print("Raw maze:")
+    #DebugMaze(maze)
 
     ProcessMaze(maze)
-    print("Maze:")
-    DebugMaze(maze)
+    #print("Maze:")
+    #DebugMaze(maze)
+
+    PrintMaze(maze)
 
     # Now 
 

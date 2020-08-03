@@ -9,29 +9,15 @@ H1 {
 div#container {
     position: relative;
 }
-div.row div {
+
+div.row div.cell {
     width: 50px;
     height: 50px;
     display: inline-block;
+    box-sizing: border-box;
+    border: 0px solid white;
 }
-div.brick {
-    background-color:blue ;
-}
-div.coin {
-    background: url('coin.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-div.cherry {
-    background: url('cherry.gif');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-div.empty {
-    background-color: black;
-}
+
 div#tux {
     background: url('tux.png');
     background-repeat: no-repeat;
@@ -41,4 +27,3 @@ div#tux {
     height: 50px;
     position: absolute;
 }
-

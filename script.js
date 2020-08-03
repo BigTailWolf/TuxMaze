@@ -1,18 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var maze = [
-        [2,2,2,2,2,2,2,2,2,2],
-        [2,1,1,1,1,1,1,1,1,2],
-        [2,1,1,1,1,1,1,1,1,2],
-        [2,1,2,1,1,2,2,1,1,2],
-        [2,1,2,2,1,2,1,1,1,2],
-        [2,1,1,2,1,1,1,1,1,2],
-        [2,1,1,2,5,1,2,1,1,2],
-        [2,1,1,2,1,2,1,1,1,2],
-        [2,1,1,1,1,1,1,1,1,2],
-        [2,2,2,2,2,2,2,2,2,2]
-    ];
 
-    var tux = { x: 1, y: 1 };
+document.addEventListener("DOMContentLoaded", function() {
+    var tux = { x: 0, y: 0 };
+
+    var maze = [
+        [6, 5, 5, 5, 3, 2, 6, 7, 7, 3],
+        [14, 7, 5, 7, 13, 15, 11, 10, 14, 11],
+        [12, 13, 5, 11, 6, 11, 14, 11, 10, 10],
+        [2, 6, 5, 15, 15, 11, 14, 15, 15, 9],
+        [12, 15, 5, 11, 12, 13, 13, 13, 13, 3],
+        [4, 15, 5, 15, 5, 7, 5, 3, 4, 11],
+        [2, 12, 7, 11, 6, 11, 6, 15, 5, 11],
+        [14, 7, 13, 15, 15, 11, 12, 15, 5, 9],
+        [12, 11, 2, 14, 11, 12, 3, 14, 3, 2],
+        [0, 12, 13, 13, 13, 5, 13, 9, 12, 9]
+    ]
 
     function displaymaze() {
         var output = "";
@@ -20,20 +21,11 @@ document.addEventListener("DOMContentLoaded", function() {
         for(var i = 0; i < maze.length; i++) {
             output += "\n<div class='row'>\n";
             for(var j = 0; j < maze[i].length; j++) {
-                if(maze[i][j] == 5)
-                    output += "<div class='cell cherry'></div>";
-                if(maze[i][j] == 2)
-                    output += "<div class='cell brick'></div>";
-                if(maze[i][j] == 1)
-                    output += "<div class='cell coin'></div>";
-                if(maze[i][j] == 0)
-                    output += "<div class='cell empty'></div>";
+                output += "<div class='cell' maze_val='"+maze[i][j]+"'></div>";
             }
             output += "\n</div>";
         }
-        //console.log(output);
         document.getElementById('maze').innerHTML = output;
-        return "Holy SHit!!"
     }
     function displaytux(){
         origin_top  = document.getElementsByClassName('row')[0].getBoundingClientRect().top
@@ -61,4 +53,19 @@ document.addEventListener("DOMContentLoaded", function() {
         //console.log(e.keyCode);
         displaytux();
     }
+})
+
+$(document).ready(function() {
+    var cells = $(".cell")
+    console.log(cells)
+    for (cell of cells) {
+        var v = cell.attributes.maze_val.value;
+        //maze[r][c]
+        if ((v & 0b1000) == 0) { cell.style.borderTopWidth = 1 }
+        if ((v & 0b0100) == 0) { cell.style.borderRightWidth = 1 }
+        if ((v & 0b0010) == 0) { cell.style.borderBottomWidth = 1 }
+        if ((v & 0b0001) == 0) { cell.style.borderLeftWidth = 1 }
+        cell.style.color = "white"
+    }
+    console.log("Holy Shit")
 })
